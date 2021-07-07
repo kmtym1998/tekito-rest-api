@@ -18,17 +18,17 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.post('/sample_actions', (req, res) => {
-  const params = req.body.input;
-  console.log({ params });
-  res.json({ id: params.id, name: params.name, type: 'actions' });
+  // const params = req.body.input;
+  // console.log({ params });
+  res.json({ id: 1, name: 'hoge', type: 'actions' });
 });
 
 app.post('/sample_webhook', (req, res) => {
-  const body = req.body;
-  console.log({ body });
-  const data = req.body.event.data.new;
-  console.log({ data });
-  res.json({ id: data.id, name: data.name, type: 'event_webhook' });
+  // const body = req.body;
+  // console.log({ body });
+  // const data = req.body.event.data.new;
+  // console.log({ data });
+  res.json({ id: 1, name: 'hoge', type: 'event_webhook' });
 });
 
 module.exports = app;
