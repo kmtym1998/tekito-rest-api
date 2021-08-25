@@ -12,6 +12,9 @@ router.post('/graphql', (req, res) => {
     return res.status(400).json({
       msg: 'request bodyにtextを含めてください',
     });
+  const privileged = req.body.text === 'privileged';
+  const msg = privileged ? 'user is privileged' : 'user is not privileged';
+  console.log({ msg });
   return res.json({
     data: {
       me: {
@@ -19,7 +22,7 @@ router.post('/graphql', (req, res) => {
           tenant: {
             id: 'user-id',
             text: req.body.text,
-            privileged: true,
+            privileged,
           },
         },
       },
